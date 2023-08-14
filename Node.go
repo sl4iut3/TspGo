@@ -7,34 +7,34 @@ type Node struct {
 
 	trip Trip
 
-	link Link
-	left, right *Node 
+	link        Link
+	left, right *Node
 }
 
-func (node Node) treeToString(depth int) (string) {
+func (node Node) treeToString(depth int) string {
 	//if(node.isLeafNode) {
-		s := ""
-		for i := 0; i < depth; i++ {
-			s += "\t"
-		}
-	if(node.isLeafNode) {
+	s := ""
+	for i := 0; i < depth; i++ {
+		s += "\t"
+	}
+	if node.isLeafNode {
 		return s + node.trip.toString() + "\n"
 	} else {
-	//	s := ""
-	//	for i := 0; i < depth; i++ {
-	//		s += "\t"
-	//	}
+		//	s := ""
+		//	for i := 0; i < depth; i++ {
+		//		s += "\t"
+		//	}
 		s += node.link.toString() + "\n"
-		s += "<-" + node.left.treeToString(depth + 1)
-		return s + "->" + node.right.treeToString(depth + 1)
+		s += "<-" + node.left.treeToString(depth+1)
+		return s + "->" + node.right.treeToString(depth+1)
 	}
 }
 
-func (node Node) toString() (string) {
+func (node Node) toString() string {
 	return node.treeToString(0)
 }
 
-func createTree(trips []Trip, links LinkList2) (*Node) {
+func createTree(trips []Trip, links LinkList2) *Node {
 	node := Node{}
 	if len(trips) == 1 {
 		node.isLeafNode = true

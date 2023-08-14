@@ -5,11 +5,11 @@ import "fmt"
 type NodeList []bool
 
 func (l NodeList) get(v int) int {
-	fmt.Print("v=", v)
-	if l[v] == false {
-		l[v] = true
-		return v + 1
-	} else {
+//	fmt.Print("v=", v)
+//	if l[v] == false {
+//		l[v] = true
+//		return v + 1
+//	} else {
 		for i := 0; i < len(l); i++ {
 			if l[i] {
 				continue
@@ -17,11 +17,11 @@ func (l NodeList) get(v int) int {
 				v--
 			} else {
 				l[i] = true
-				fmt.Println(" ", i+1, " l=", l)
+//				fmt.Println(" ", i+1, " l=", l)
 				return i + 1
 			}
 		}
-	}
+	//}
 	return -1
 }
 
@@ -85,7 +85,7 @@ func buildHalfFact() func(int) int {
 		if hf[n] != 0 {
 			return hf[n]
 		} else {
-			fmt.Println("calcul ", n)
+//			fmt.Println("calcul ", n)
 			v := 1
 			for i := 3; i <= n; i++ {
 				v *= i
@@ -108,7 +108,8 @@ func createTrip(v int, n int, list LinkList2) Trip {
 	trip[0] = visitedNodes.get(0)
 	trip[n-1] = visitedNodes.get(0)
 
-	return createTripFromArray(trip, list)
+//	return createTripFromArray(trip, list)
+	return Trip{}
 }
 
 func createTripFromArray(t []int, list LinkList2) Trip {
