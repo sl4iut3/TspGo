@@ -72,9 +72,7 @@ func createTree(trips []Trip, links LinkList2) (*Node) {
 	}
 }
 
-func main() { testTree() }
-
-func testTree() {
+func testNode() {
 	distances := [][]int{
 		{ 0,  8, 39, 37, 50}, 
 		{ 8,  0, 45, 47, 49}, 

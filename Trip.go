@@ -116,8 +116,7 @@ func createTrip(v int, n int, list LinkList2) Trip {
 	trip[0] = visitedNodes.get(0)
 	trip[n-1] = visitedNodes.get(0)
 
-//	return createTripFromArray(trip, list)
-	return Trip{}
+	return createTripFromArray(trip, list)
 }
 
 func createTripFromArray(t []int, list LinkList2) Trip {

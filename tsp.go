@@ -20,7 +20,7 @@ func println[T string | int](s T) {
 }
 
 //func main() { mainStringTree() }
-func main() { mainTSP() }
+func main() { testNode() }
 
 func mainTSP() {
 	fmt.Println("TSP!")
@@ -49,6 +49,6 @@ func mainTSP() {
 	fmt.Println(toc.Sub(tic))
 
 	tree := createTree(trips, list)
-	fmt.Println(tree.toString())
+	fmt.Println(tree)
 
 }
