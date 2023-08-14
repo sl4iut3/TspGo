@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type LinkList map[Link]int
 
 func (list LinkList) addLink(l Link) {
@@ -34,10 +36,10 @@ func (list LinkList) getMinLink() Link {
 	return minLink
 }
 
-func (list LinkList) toString() string {
+func (list LinkList) String() string {
 	s := ""
 	for l, _ := range list {
-		s += "(" + l.toString() + ") "
+		s += "(" + fmt.Sprint(l) + ") "
 	}
 	return s
 }
