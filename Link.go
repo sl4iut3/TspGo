@@ -2,7 +2,6 @@ package main
 
 import ( 
 	"fmt" 
-	"strconv" 
 )
 
 type Link struct {
@@ -13,10 +12,8 @@ func (l Link) compareTo( l2 Link) (int) {
 	return l.d-l2.d
 }
 
-func (l Link) toString() (string) {
-	return "n1=" + strconv.Itoa(l.n1) +
-		", n2="+fmt.Sprint(l.n2) +
-		", d="+fmt.Sprint(l.d) 
+func (l Link) String() (string) {
+	return fmt.Sprintf("(%d, %d)[%d]", l.n1, l.n2, l.d)
 }
 
 func createLink(n1, n2, d int) (Link) {

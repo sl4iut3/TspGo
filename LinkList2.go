@@ -1,6 +1,6 @@
 package main
 
-//import "fmt"
+import "fmt"
 
 type LinkList2 []Link
 
@@ -54,12 +54,12 @@ func (list LinkList2) clone() (LinkList2) {
 	return newList
 }
 
-func (list LinkList2) toString() (string) {
-	s := ""
+func (list LinkList2) String() (string) {
+	s := "{ "
 	for i, _ := range list {
-		s += "(" + list[i].toString() + ") "
+		s += fmt.Sprint(list[i]) + " "
 	}
-	return s
+	return s + "}"
 }
 
 func createLinkList2(distances [][]int) (LinkList2) {

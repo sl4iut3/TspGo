@@ -5,11 +5,11 @@ import "fmt"
 type NodeList []bool
 
 func (l NodeList) get(v int) int {
-	fmt.Print("v=", v)
-	if l[v] == false {
-		l[v] = true
-		return v + 1
-	} else {
+//	fmt.Print("v=", v)
+//	if l[v] == false {
+//		l[v] = true
+//		return v + 1
+//	} else {
 		for i := 0; i < len(l); i++ {
 			if l[i] {
 				continue
@@ -17,11 +17,11 @@ func (l NodeList) get(v int) int {
 				v--
 			} else {
 				l[i] = true
-				fmt.Println(" ", i+1, " l=", l)
+//				fmt.Println(" ", i+1, " l=", l)
 				return i + 1
 			}
 		}
-	}
+//	}
 	return -1
 }
 
@@ -49,11 +49,19 @@ func (trip Trip) hasLink(link Link) bool {
 	return false
 }
 
-func (trip Trip) toString() string {
+func (trip Trip) length() int {
+	d := 0
+	for _, l := range trip {
+		d += l.d
+	}
+	return d
+}
+
+func (trip Trip) String() string {
 	s := "[ "
-	v := trip[0].n2
+	v := trip[0].n1
 	for i, l := range trip {
-		if i < len(trip) {
+		if i < len(trip) - 1 {
 			if l.n1 == v {
 				s += fmt.Sprint(l.n2) + " "
 				v = l.n2
@@ -85,7 +93,7 @@ func buildHalfFact() func(int) int {
 		if hf[n] != 0 {
 			return hf[n]
 		} else {
-			fmt.Println("calcul ", n)
+//			fmt.Println("calcul ", n)
 			v := 1
 			for i := 3; i <= n; i++ {
 				v *= i
@@ -112,7 +120,7 @@ func createTrip(v int, n int, list LinkList2) Trip {
 }
 
 func createTripFromArray(t []int, list LinkList2) Trip {
-	fmt.Println(t)
+//	fmt.Println(t)
 	trip := Trip{}
 	trip.addLink(*(list.getLink2(0, t[0])))
 	for i := 1; i < len(t); i++ {

@@ -13,7 +13,7 @@ func rawHalfFact(n int) int {
 	return v
 }
 
-func main() {
+func main3() {
 	var bufHalfFact = bufferize(rawHalfFact)
 	var tic, toc time.Time
 	tic = time.Now()
